@@ -1,16 +1,16 @@
 pipeline{
 
-	agent any
+	agent {label 'slave1'}
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('venkatesh')
 	}
 
 	stages {
-           stage('gitclone') {
+           stage('SCM checkout ') {
 
 			steps {
-				sh 'https://github.com/venky477/nodeapp_test.git'
+				git 'https://github.com/venky477/nodeapp_test.git'
 			}
 		}
 
